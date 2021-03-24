@@ -29,7 +29,7 @@ function App(initialProps: AppProps) {
             </p>
             <p>
               For production builds (npm run build), type-checking is already
-              enabled for you. The build script runs 'tsc --noEmit' prior to compilation'.
+              enabled for you. The build script runs 'tsc --noEmit' prior to compilation.
             </p>
           </div>
         </div>
