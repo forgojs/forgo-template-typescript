@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "description": "A template you can use to get started with Forgo and TypeScript",
   "scripts": {
-    "start": "npx webpack serve",
+    "start": "npx webpack serve --mode development",
     "build": "tsc --noEmit && npx webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
