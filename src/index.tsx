@@ -1,11 +1,10 @@
 import * as forgo from "forgo";
-import { ForgoRenderArgs, mount } from "forgo";
+import { mount, Component } from "forgo";
+import type { ForgoNewComponentCtor } from "forgo";
 
-type AppProps = {};
-
-function App(initialProps: AppProps) {
-  return {
-    render(props: AppProps, args: ForgoRenderArgs) {
+const App: ForgoNewComponentCtor = (_initialProps) => {
+  return new Component({
+    render(_props, _component) {
       return (
         <div style={{ width: "400px", margin: "auto", textAlign: "center" }}>
           <h1>Forgo App</h1>
@@ -19,7 +18,7 @@ function App(initialProps: AppProps) {
               background: "#eee",
               border: "1px solid #ccc",
               padding: "0 1em 1em 1em",
-              fontFamily: "sans-serif"
+              fontFamily: "sans-serif",
             }}
           >
             <h3>Note:</h3>
@@ -29,20 +28,24 @@ function App(initialProps: AppProps) {
             </p>
             <p>
               For production builds (npm run build), type-checking is already
-              enabled for you. The build script runs 'tsc --noEmit' prior to compilation.
+              enabled for you. The build script runs 'tsc --noEmit' prior to
+              compilation.
             </p>
           </div>
         </div>
       );
     },
-  };
+  });
+};
+
+interface LogoProps {
+  height: string;
+  width: string;
 }
 
-type LogoProps = { height: string; width: string };
-
-function Logo(initialProps: LogoProps) {
-  return {
-    render(props: LogoProps, args: ForgoRenderArgs) {
+const Logo: ForgoNewComponentCtor<LogoProps> = (_initialProps) => {
+  return new Component({
+    render(props, _component) {
       return (
         <>
           <svg
@@ -67,8 +70,8 @@ function Logo(initialProps: LogoProps) {
         </>
       );
     },
-  };
-}
+  });
+};
 
 window.addEventListener("load", () => {
   mount(<App />, document.getElementById("root"));
